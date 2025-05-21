@@ -16,7 +16,6 @@ export default function Game() {
   const [contestants, setContestants] = useState<Contestant[]>([])
   const [currentPair, setCurrentPair] = useState<[Contestant, Contestant] | null>(null)
   const [winners, setWinners] = useState<Contestant[]>([])
-  const [roundNumber, setRoundNumber] = useState(1)
   const [isGameOver, setIsGameOver] = useState(false)
   const [finalWinner, setFinalWinner] = useState<Contestant | null>(null)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
@@ -43,7 +42,6 @@ export default function Game() {
       setTimeout(() => {
         setContestants(winners)
         setWinners([])
-        setRoundNumber(prev => prev + 1)
       }, 500) // Delay to allow for animations
     } else if (contestants.length === 0 && winners.length === 1) {
       // Game over, we have a winner
